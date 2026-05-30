@@ -1,26 +1,71 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cream: #efe5d6;
+  --warm-cream: #f7eedc;
+  --coffee-brown: #4b3628;
+  --espresso: #221914;
+  --leaf-green: #2f5d3a;
+  --deep-green: #163b2a;
+  --mustard: #d6a842;
+  --terracotta: #b96d42;
+  --soft-black: #12100e;
+  --glass-white: rgba(255, 255, 255, 0.72);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: clip;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: var(--soft-black);
+  background:
+    radial-gradient(circle at 20% 15%, #fff8eb 0%, transparent 30%),
+    radial-gradient(circle at 80% 10%, #dbe7d4 0%, transparent 20%),
+    linear-gradient(180deg, var(--warm-cream) 0%, var(--cream) 60%, #eadfcd 100%);
+  font-family: var(--font-body), sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.warm-card {
+  background: linear-gradient(180deg, rgba(255, 253, 248, 0.86), rgba(247, 238, 220, 0.88));
+  backdrop-filter: blur(8px);
+}
+
+.paper-grain {
+  position: relative;
+}
+
+.paper-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(75, 54, 40, 0.05) 0.8px, transparent 0.8px);
+  background-size: 4px 4px;
+  pointer-events: none;
+  border-radius: inherit;
 }
