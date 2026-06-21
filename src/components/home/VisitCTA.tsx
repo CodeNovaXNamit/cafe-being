@@ -9,7 +9,7 @@ export function VisitCTA() {
         Some places are not just for eating. They are for sitting longer than planned.
       </p>
       <div className="mt-8 flex flex-wrap gap-3">
-        <Button href={siteConfig.googleMapsUrl} external>
+        <Button href={siteConfig.mapUrl} external>
           Open Google Maps
         </Button>
         <Button href="/gallery" variant="ghost" className="text-[color:var(--warm-cream)]">
@@ -19,4 +19,3 @@ export function VisitCTA() {
     </section>
   );
 }
-

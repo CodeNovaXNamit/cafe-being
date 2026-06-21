@@ -1,7 +1,6 @@
 "use client";
 
 import { Home, Images, MapPin, Menu } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "@/data/site";
@@ -21,17 +20,16 @@ export function MobileNav() {
     <>
       <header className="fixed inset-x-3 top-3 z-50 flex items-center justify-between rounded-full border border-[color:var(--coffee-brown)]/15 bg-[color:var(--glass-white)] px-3 py-2 shadow-md backdrop-blur md:hidden">
         <Link href="/" className="flex items-center gap-2">
-          <Image
-            src="/assets/cafe-beings/Cafe-beings-logo.png"
-            alt="Cafe Beings logo"
-            width={30}
-            height={30}
-            className="rounded-full"
-          />
-          <span className="text-sm font-semibold text-[color:var(--coffee-brown)]">Cafe Beings</span>
+          <span
+            aria-hidden="true"
+            className="grid size-[30px] place-items-center rounded-full bg-[color:var(--leaf-green)] font-serif text-sm text-[color:var(--warm-cream)]"
+          >
+            D
+          </span>
+          <span className="text-sm font-semibold text-[color:var(--coffee-brown)]">{siteConfig.name}</span>
         </Link>
         <a
-          href={siteConfig.googleMapsUrl}
+          href={siteConfig.mapUrl}
           target="_blank"
           rel="noreferrer"
           className="rounded-full bg-[color:var(--coffee-brown)] px-3 py-1.5 text-xs font-semibold text-[color:var(--warm-cream)]"

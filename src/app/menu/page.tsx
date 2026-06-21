@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { MenuBrowser } from "@/components/menu/MenuBrowser";
+import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Menu",
-  description: "Browse Cafe Beings menu categories, comfort bites, and coffee-style cafe drinks.",
+  description: `Browse ${siteConfig.name} menu categories for Continental food, cafe drinks, pizzas, fries, and relaxed meals in Anand Vihar.`,
 };
 
 export default function MenuPage() {
@@ -37,4 +38,3 @@ export default function MenuPage() {
     </section>
   );
 }
-

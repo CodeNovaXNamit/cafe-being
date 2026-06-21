@@ -1,19 +1,21 @@
-import { CafeStory } from "@/components/home/CafeStory";
-import { GalleryPreview } from "@/components/home/GalleryPreview";
 import { Hero } from "@/components/home/Hero";
-import { MenuPreview } from "@/components/home/MenuPreview";
-import { SpecialtyCards } from "@/components/home/SpecialtyCards";
-import { VisitCTA } from "@/components/home/VisitCTA";
+import { HomeBentoGrid } from "@/components/home/HomeBentoGrid";
+import { HomeFinalCta } from "@/components/home/HomeFinalCta";
+import { HomeGalleryPreview } from "@/components/home/HomeGalleryPreview";
+import { HomeInfoStrip } from "@/components/home/HomeInfoStrip";
+import { HomeMenuPreview } from "@/components/home/HomeMenuPreview";
+import { HomeStorySection } from "@/components/home/HomeStorySection";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <CafeStory />
-      <SpecialtyCards />
-      <MenuPreview />
-      <GalleryPreview />
-      <VisitCTA />
+      <HomeInfoStrip />
+      <HomeStorySection />
+      <HomeMenuPreview />
+      <HomeBentoGrid />
+      <HomeGalleryPreview />
+      <HomeFinalCta />
     </>
   );
 }

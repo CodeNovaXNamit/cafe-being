@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { GalleryGrid } from "@/components/gallery/GalleryGrid";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Gallery",
-  description: "Explore Cafe Beings interiors, plants, seating corners, lights, and warm evening mood.",
+  description: `Explore ${siteConfig.name} interiors, plants, warm lighting, dreamy corners, and relaxed seating in Anand Vihar.`,
 };
 
 export default function GalleryPage() {
@@ -20,4 +21,3 @@ export default function GalleryPage() {
     </section>
   );
 }
-

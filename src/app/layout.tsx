@@ -18,37 +18,52 @@ const bodyFont = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.siteUrl),
   title: {
-    default: "Cafe Beings | Have a Cup, Save a Pup",
-    template: "%s | Cafe Beings",
+    default: siteConfig.seo.title,
+    template: `%s | ${siteConfig.name}`,
   },
-  description:
-    "Cafe Beings is a cozy, plant-filled cafe with warm lights, comfort bites and a pet-loving heart. Visit for coffee, conversations and calm corners.",
+  description: siteConfig.seo.description,
   openGraph: {
-    title: "Cafe Beings | Have a Cup, Save a Pup",
-    description:
-      "Cafe Beings is a cozy, plant-filled cafe with warm lights, comfort bites and a pet-loving heart.",
+    title: siteConfig.seo.title,
+    description: siteConfig.seo.description,
     type: "website",
-    images: [
-      {
-        url: "/assets/cafe-beings/cafe-being-main.jpeg",
-        alt: "Cafe Beings warm plant-filled interior",
-      },
-    ],
+    siteName: siteConfig.name,
+    // TODO: add a Delilah-specific Open Graph image when the official asset is provided.
+  },
+  twitter: {
+    card: "summary",
+    title: siteConfig.seo.title,
+    description: siteConfig.seo.description,
   },
 };
 
 const localBusinessLd = {
   "@context": "https://schema.org",
-  "@type": "CafeOrCoffeeShop",
+  "@type": "Restaurant",
   name: siteConfig.name,
-  slogan: siteConfig.tagline,
-  description: siteConfig.shortDescription,
-  url: siteConfig.siteUrl,
-  sameAs: siteConfig.instagram ? [siteConfig.instagram] : [],
-  telephone: siteConfig.phone || undefined,
-  openingHours: siteConfig.openingHours || undefined,
+  alternateName: siteConfig.hindiName,
+  description: siteConfig.description,
+  telephone: siteConfig.phoneHref.replace("tel:", ""),
+  priceRange: siteConfig.priceRange,
+  servesCuisine: siteConfig.cuisine,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "28 LSC DDA Market, Pushpanjali, Anand Vihar",
+    addressLocality: "New Delhi",
+    addressRegion: "Delhi",
+    postalCode: "110092",
+    addressCountry: "IN",
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: siteConfig.rating,
+    reviewCount: siteConfig.reviewCount,
+    bestRating: 5,
+  },
+  // Rating/review values are a snapshot and should be verified before launch.
+  // TODO: add openingHoursSpecification after weekly hours are owner-verified.
+  ...(siteConfig.siteUrl ? { url: siteConfig.siteUrl } : {}),
+  ...(siteConfig.instagramUrl ? { sameAs: [siteConfig.instagramUrl] } : {}),
 };
 
 export default function RootLayout({
@@ -66,7 +81,9 @@ export default function RootLayout({
         </SmoothScrollProvider>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessLd).replace(/</g, "\\u003c"),
+          }}
         />
       </body>
     </html>

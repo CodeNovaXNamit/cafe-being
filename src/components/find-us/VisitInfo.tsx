@@ -1,4 +1,4 @@
-import { AtSign, Clock3, Phone } from "lucide-react";
+import { Clock3, IndianRupee, Phone, Star, Utensils } from "lucide-react";
 import { SoftCard } from "@/components/ui/SoftCard";
 import { siteConfig } from "@/data/site";
 
@@ -8,24 +8,37 @@ export function VisitInfo() {
       <SoftCard>
         <h3 className="text-xl text-[color:var(--coffee-brown)]">Opening hours</h3>
         <p className="mt-2 inline-flex items-center gap-2 text-sm text-[color:var(--coffee-brown)]/85">
-          <Clock3 size={14} /> {siteConfig.openingHours}
+          <Clock3 size={14} /> {siteConfig.hoursLabel}
+        </p>
+        <p className="mt-2 text-xs text-[color:var(--coffee-brown)]/65">
+          Weekly opening times are pending owner confirmation.
         </p>
       </SoftCard>
       <SoftCard>
-        <h3 className="text-xl text-[color:var(--coffee-brown)]">Best for</h3>
-        <p className="mt-2 text-sm text-[color:var(--coffee-brown)]/85">{siteConfig.visitTags.join(", ")}</p>
+        <h3 className="text-xl text-[color:var(--coffee-brown)]">Services</h3>
+        <p className="mt-2 inline-flex items-start gap-2 text-sm leading-6 text-[color:var(--coffee-brown)]/85">
+          <Utensils size={14} className="mt-1 shrink-0" /> {siteConfig.services.join(" · ")}
+        </p>
       </SoftCard>
       <SoftCard>
-        <h3 className="text-xl text-[color:var(--coffee-brown)]">Vibe</h3>
-        <p className="mt-2 text-sm text-[color:var(--coffee-brown)]/85">{siteConfig.vibe}</p>
+        <h3 className="text-xl text-[color:var(--coffee-brown)]">Rating & price</h3>
+        <p className="mt-2 inline-flex items-center gap-2 text-sm text-[color:var(--coffee-brown)]/85">
+          <Star size={14} fill="currentColor" /> {siteConfig.rating} from {siteConfig.reviewCount} reviews (snapshot)
+        </p>
+        <p className="mt-2 inline-flex items-center gap-2 text-sm text-[color:var(--coffee-brown)]/85">
+          <IndianRupee size={14} /> {siteConfig.priceRange}
+        </p>
       </SoftCard>
       <SoftCard>
         <h3 className="text-xl text-[color:var(--coffee-brown)]">Contact</h3>
-        <p className="mt-2 inline-flex items-center gap-2 text-sm text-[color:var(--coffee-brown)]/85">
-          <Phone size={14} /> {siteConfig.phone || "TODO: verify with owner"}
-        </p>
-        <p className="mt-2 inline-flex items-center gap-2 text-sm text-[color:var(--coffee-brown)]/85">
-          <AtSign size={14} /> {siteConfig.instagram || "TODO: add official Instagram"}
+        <a
+          href={siteConfig.phoneHref}
+          className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--leaf-green)]"
+        >
+          <Phone size={14} /> {siteConfig.phone}
+        </a>
+        <p className="mt-2 text-xs text-[color:var(--coffee-brown)]/65">
+          WhatsApp, reservations, ordering, and social links are pending owner confirmation.
         </p>
       </SoftCard>
     </div>

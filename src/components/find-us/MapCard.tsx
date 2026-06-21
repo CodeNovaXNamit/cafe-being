@@ -9,10 +9,13 @@ export function MapCard() {
         <div>
           <MapPin className="mx-auto text-[color:var(--leaf-green)]" />
           <p className="mt-3 text-lg text-[color:var(--coffee-brown)]">{siteConfig.locationLabel}</p>
-          <p className="mt-2 text-sm text-[color:var(--coffee-brown)]/75">
-            Map embed placeholder until owner-shared exact pin details.
+          <p className="mt-2 text-sm leading-6 text-[color:var(--coffee-brown)]/75">
+            {siteConfig.address}
           </p>
-          <Button href={siteConfig.googleMapsUrl} external className="mt-5">
+          <p className="mt-2 text-xs text-[color:var(--coffee-brown)]/65">
+            Directions currently use an address search. Exact Google Maps pin pending owner confirmation.
+          </p>
+          <Button href={siteConfig.mapUrl} external className="mt-5">
             Open in Google Maps
           </Button>
         </div>
@@ -20,4 +23,3 @@ export function MapCard() {
     </div>
   );
 }
-

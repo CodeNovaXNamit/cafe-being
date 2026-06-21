@@ -1,78 +1,69 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
+import { MapPin, Phone, Star } from "lucide-react";
 import Link from "next/link";
-import { siteConfig } from "@/data/site";
 import { SeamlessMobileHeroVideo } from "@/components/home/SeamlessMobileHeroVideo";
-import FloatingHeroDecor from "./FloatingHeroDecor";
+import { siteConfig } from "@/data/site";
 
 export function MobileHero() {
   return (
-    <section className="relative min-h-screen min-h-[100svh] overflow-hidden bg-[#21180f] md:hidden">
+    <section className="relative min-h-[100svh] overflow-hidden bg-[color:var(--deep-green)] md:hidden">
       <SeamlessMobileHeroVideo />
 
-      <div className="absolute inset-0 z-20 bg-[radial-gradient(95%_55%_at_50%_7%,rgba(255,245,224,0.28),transparent_62%)]" />
-      <div className="absolute inset-0 z-20 bg-[linear-gradient(180deg,rgba(20,14,10,0.08)_0%,rgba(20,14,10,0.16)_45%,rgba(20,14,10,0.46)_100%)]" />
-      <div className="absolute inset-0 z-20 bg-[radial-gradient(120%_120%_at_50%_50%,transparent_55%,rgba(17,12,9,0.18)_100%)]" />
-      <FloatingHeroDecor />
+      <div className="absolute inset-0 z-20 bg-[linear-gradient(180deg,rgba(12,24,16,0.2)_0%,rgba(12,24,16,0.16)_28%,rgba(10,19,13,0.58)_62%,rgba(8,15,10,0.9)_100%)]" />
+      <div className="absolute inset-0 z-20 bg-[radial-gradient(90%_44%_at_50%_14%,rgba(255,238,197,0.2),transparent_70%)]" />
 
-      <div className="relative z-30 min-h-screen min-h-[100svh] px-5 pt-[34svh]">
-        <div className="mx-auto max-w-[310px] text-center text-[color:var(--warm-cream)]">
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.12, duration: 0.45 }}
-            className="mx-auto inline-flex rounded-full border border-white/30 bg-[#fff7e8]/16 px-3 py-1.5 text-[11px] tracking-wide backdrop-blur-md"
-          >
-            Plant-filled • Pet-loving • Cozy coffee
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="mt-4 text-5xl leading-none [text-shadow:0_4px_20px_rgba(20,15,10,0.55)]"
-          >
+      <div className="relative z-30 flex min-h-[100svh] items-end px-4 pt-28 pb-5 min-[380px]:px-5 min-[380px]:pb-7">
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, ease: "easeOut" }}
+          className="w-full rounded-[1.8rem] border border-white/22 bg-[color:var(--deep-green)]/58 p-4 text-[color:var(--warm-cream)] shadow-[0_24px_60px_-30px_rgba(0,0,0,0.95)] backdrop-blur-md min-[380px]:p-5"
+        >
+          <div className="flex items-center justify-between gap-3">
+            <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.08em] text-white/78 uppercase">
+              <MapPin size={12} /> Anand Vihar
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/12 px-2.5 py-1 text-[11px]">
+              <Star size={12} fill="currentColor" /> {siteConfig.rating} · {siteConfig.hoursLabel}
+            </span>
+          </div>
+
+          <h1 className="mt-4 text-[2.7rem] leading-[0.94] tracking-[-0.04em] text-[color:var(--warm-cream)] min-[380px]:text-5xl">
             {siteConfig.name}
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.29, duration: 0.5 }}
-            className="mt-4 text-[29px] leading-[1.04] tracking-tight [text-shadow:0_4px_16px_rgba(20,15,10,0.55)]"
-          >
-            Have a cup.
-            <br />
-            <span className="text-[color:var(--mustard)]">Save a pup.</span>
-          </motion.p>
-        </div>
-      </div>
+          </h1>
+          <p className="mt-2 text-lg leading-tight text-[#f1c977]">
+            Cozy Continental cafe in Anand Vihar
+          </p>
+          <p className="mt-3 text-[13px] leading-5 text-white/78">
+            Warm lights, plant-filled corners, good food, mocktails, and easy conversations.
+          </p>
 
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.42, duration: 0.52 }}
-        className="absolute right-[18px] bottom-6 left-[18px] z-30 rounded-[28px] border border-white/25 bg-[#fff7e8]/18 p-4 text-[color:var(--warm-cream)] shadow-[0_22px_34px_-26px_rgba(20,15,10,1)] backdrop-blur-xl"
-      >
-        <p className="text-xs leading-5 text-[color:var(--warm-cream)]/90">
-          Slow coffee, cozy corners, tiny happy moments.
-        </p>
-        <div className="mt-3 grid grid-cols-2 gap-2">
-          <Link
-            href="/menu"
-            className="inline-flex items-center justify-center rounded-full bg-[#f6ebd5] px-4 py-2.5 text-sm font-semibold text-[color:var(--coffee-brown)] transition hover:translate-y-[-1px]"
-          >
-            View Menu
-          </Link>
+          <div className="mt-4 grid grid-cols-2 gap-2">
+            <Link
+              href="/menu"
+              className="inline-flex min-h-11 items-center justify-center rounded-full bg-[color:var(--warm-cream)] px-4 py-2.5 text-sm font-bold text-[color:var(--deep-green)]"
+            >
+              View Menu
+            </Link>
+            <a
+              href={siteConfig.mapUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-3 py-2.5 text-sm font-bold text-[color:var(--warm-cream)]"
+            >
+              <MapPin size={14} /> Directions
+            </a>
+          </div>
           <a
-            href={siteConfig.googleMapsUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center justify-center rounded-full border border-white/30 bg-black/12 px-4 py-2.5 text-sm font-semibold text-[color:var(--warm-cream)] transition hover:translate-y-[-1px]"
+            href={siteConfig.phoneHref}
+            className="mt-3 inline-flex w-full items-center justify-center gap-2 text-xs font-semibold text-white/80"
           >
-            Get Directions
+            <Phone size={13} /> Call {siteConfig.phone}
           </a>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 }
