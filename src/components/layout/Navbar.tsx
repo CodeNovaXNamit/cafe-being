@@ -1,7 +1,6 @@
 "use client";
 
 import { Menu, MapPin, X } from "lucide-react";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -63,12 +62,7 @@ export function Navbar() {
           </a>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45 }}
-          className="fixed top-[14px] right-[14px] left-[14px] z-[72] flex h-[58px] items-center justify-between rounded-full border border-white/35 bg-[color:var(--leaf-green)]/70 px-3.5 shadow-[0_20px_30px_-25px_rgba(20,40,25,1)] backdrop-blur-xl md:hidden"
-        >
+        <div className="hero-copy-enter fixed top-[14px] right-[14px] left-[14px] z-[72] flex h-[58px] items-center justify-between rounded-full border border-white/35 bg-[color:var(--leaf-green)]/70 px-3.5 shadow-[0_20px_30px_-25px_rgba(20,40,25,1)] backdrop-blur-xl md:hidden">
           <Link href="/" className="group inline-flex items-center gap-2.5" onClick={() => setMenuOpen(false)}>
             <span
               aria-hidden="true"
@@ -90,7 +84,7 @@ export function Navbar() {
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
-        </motion.div>
+        </div>
       </header>
 
       <div

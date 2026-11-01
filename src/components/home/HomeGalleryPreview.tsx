@@ -1,5 +1,6 @@
 import { ArrowRight, Camera, Leaf, MoonStar, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { DeferredVideo } from "@/components/ui/DeferredVideo";
 import { ScrollReveal } from "./ScrollReveal";
 
 const moments = [
@@ -53,23 +54,22 @@ export function HomeGalleryPreview() {
       <div className="mt-8 grid gap-4 md:grid-cols-[1.35fr_0.65fr]">
         <ScrollReveal direction="up" className="min-h-[27rem] md:min-h-[35rem]">
           <div className="relative h-full min-h-[27rem] overflow-hidden rounded-[2rem] bg-[color:var(--deep-green)] md:min-h-[35rem]">
-            <video
+            <DeferredVideo
               className="absolute inset-0 h-full w-full object-cover"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              aria-label="Delilah's Cafe exterior and greenery"
-            >
-              <source
-                src="/assets/cafe-beings/home/delilah-phone.mp4"
-                type="video/mp4"
-                media="(max-width: 767px)"
-              />
-              <source src="/assets/cafe-beings/home/delilah.mp4" type="video/mp4" />
-              Your browser does not support background video.
-            </video>
+              ariaLabel="Delilah's Cafe exterior and greenery"
+              sources={[
+                {
+                  src: "/assets/cafe-beings/home/delilah-phone.mp4",
+                  type: "video/mp4",
+                  media: "(max-width: 767px)",
+                },
+                {
+                  src: "/assets/cafe-beings/home/delilah.mp4",
+                  type: "video/mp4",
+                  media: "(min-width: 768px)",
+                },
+              ]}
+            />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_38%,rgba(10,21,14,0.78)_100%)]" />
             <div className="absolute inset-x-5 bottom-5 rounded-[1.4rem] border border-white/20 bg-[color:var(--deep-green)]/48 p-4 text-[color:var(--warm-cream)] backdrop-blur-md md:inset-x-7 md:bottom-7 md:p-5">
               <p className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.12em] text-white/65 uppercase">

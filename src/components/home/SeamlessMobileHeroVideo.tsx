@@ -24,7 +24,7 @@ export function SeamlessMobileHeroVideo() {
       aria-label="Delilah's Cafe exterior surrounded by greenery"
       onError={() => setVideoError(true)}
     >
-      <source src={VIDEO_SRC} type="video/mp4" />
+      <source src={VIDEO_SRC} type="video/mp4" media="(max-width: 767px)" />
       Your browser does not support background video.
     </video>
   );

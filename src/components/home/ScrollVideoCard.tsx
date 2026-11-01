@@ -7,6 +7,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { DeferredVideo } from "@/components/ui/DeferredVideo";
 
 const videoPath = "/assets/cafe-beings/home/delilah-home-2.mp4";
 
@@ -79,15 +80,10 @@ export function ScrollVideoCard() {
       >
         <div className="relative h-full overflow-hidden rounded-[1.45rem] border border-white/12 bg-[linear-gradient(145deg,#244f38,#9b7248)]">
           {!videoError ? (
-            <video
-              src={videoPath}
+            <DeferredVideo
               className="h-full w-full object-cover"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              aria-label="A vertical glimpse of the atmosphere at Delilah's Cafe"
+              ariaLabel="A vertical glimpse of the atmosphere at Delilah's Cafe"
+              sources={[{ src: videoPath, type: "video/mp4" }]}
               onError={() => setVideoError(true)}
             />
           ) : (

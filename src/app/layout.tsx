@@ -4,7 +4,6 @@ import "./globals.css";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
-import { PageTransition } from "@/components/layout/PageTransition";
 import { siteConfig } from "@/data/site";
 
 const headingFont = Playfair_Display({
@@ -76,7 +75,7 @@ export default function RootLayout({
       <body>
         <SmoothScrollProvider>
           <Navbar />
-          <PageTransition>{children}</PageTransition>
+          <main className="min-h-screen pb-24 md:pb-0">{children}</main>
           <Footer />
         </SmoothScrollProvider>
         <script

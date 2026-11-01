@@ -1,7 +1,7 @@
 import { Armchair, Coffee, Leaf, MoonStar } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import { ScrollReveal } from "./ScrollReveal";
-import { ScrollVideoCard } from "./ScrollVideoCard";
+import { LazyScrollVideoCard } from "./LazyScrollVideoCard";
 
 const storyNotes = [
   { icon: Leaf, label: "Plant-filled corners" },
@@ -68,7 +68,7 @@ export function HomeStorySection() {
                   </p>
                 </div>
 
-                <ScrollVideoCard />
+                <LazyScrollVideoCard />
               </div>
 
               <div className="mt-9 grid gap-3 min-[420px]:grid-cols-3 md:mt-6">

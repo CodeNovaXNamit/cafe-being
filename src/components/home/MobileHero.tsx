@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { MapPin, Phone, Star } from "lucide-react";
 import Link from "next/link";
 import { SeamlessMobileHeroVideo } from "@/components/home/SeamlessMobileHeroVideo";
@@ -15,12 +14,7 @@ export function MobileHero() {
       <div className="absolute inset-0 z-20 bg-[radial-gradient(90%_44%_at_50%_14%,rgba(255,238,197,0.2),transparent_70%)]" />
 
       <div className="relative z-30 flex min-h-[100svh] items-end px-4 pt-28 pb-5 min-[380px]:px-5 min-[380px]:pb-7">
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease: "easeOut" }}
-          className="w-full rounded-[1.8rem] border border-white/22 bg-[color:var(--deep-green)]/58 p-4 text-[color:var(--warm-cream)] shadow-[0_24px_60px_-30px_rgba(0,0,0,0.95)] backdrop-blur-md min-[380px]:p-5"
-        >
+        <div className="hero-copy-enter w-full rounded-[1.8rem] border border-white/22 bg-[color:var(--deep-green)]/58 p-4 text-[color:var(--warm-cream)] shadow-[0_24px_60px_-30px_rgba(0,0,0,0.95)] backdrop-blur-md min-[380px]:p-5">
           <div className="flex items-center justify-between gap-3">
             <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.08em] text-white/78 uppercase">
               <MapPin size={12} /> Anand Vihar
@@ -62,7 +56,7 @@ export function MobileHero() {
           >
             <Phone size={13} /> Call {siteConfig.phone}
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

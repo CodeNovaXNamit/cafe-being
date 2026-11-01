@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -22,7 +21,11 @@ export function DesktopHero() {
           aria-label="Delilah's Cafe exterior surrounded by plants in warm evening light"
           onError={() => setVideoError(true)}
         >
-          <source src="/assets/cafe-beings/home/delilah.mp4" type="video/mp4" />
+          <source
+            src="/assets/cafe-beings/home/delilah.mp4"
+            type="video/mp4"
+            media="(min-width: 768px)"
+          />
           Your browser does not support background video.
         </video>
       ) : null}
@@ -32,12 +35,7 @@ export function DesktopHero() {
       <div className="absolute top-[-12rem] right-[-9rem] size-[34rem] rounded-full bg-[color:var(--mustard)]/12 blur-3xl" />
 
       <div className="relative z-10 flex min-h-[100svh] w-full items-center pt-24 pr-10 pl-[clamp(2rem,8vw,8.75rem)]">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, ease: "easeOut" }}
-          className="max-w-[720px]"
-        >
+        <div className="hero-copy-enter max-w-[720px]">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs font-semibold tracking-[0.12em] text-[color:var(--warm-cream)] uppercase backdrop-blur-md">
             <MapPin size={14} /> Anand Vihar, New Delhi
           </span>
@@ -78,7 +76,7 @@ export function DesktopHero() {
               <Phone size={15} /> Call {siteConfig.phone}
             </a>
           </div>
-        </motion.div>
+        </div>
       </div>
 
     </section>
