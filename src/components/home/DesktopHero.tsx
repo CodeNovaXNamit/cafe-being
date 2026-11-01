@@ -2,33 +2,18 @@
 
 import { MapPin, Phone } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { YouTubeBackground } from "@/components/ui/YouTubeBackground";
 import { siteConfig } from "@/data/site";
 
 export function DesktopHero() {
-  const [videoError, setVideoError] = useState(false);
-
   return (
     <section className="relative hidden min-h-[100svh] overflow-hidden bg-[color:var(--deep-green)] md:block">
-      {!videoError ? (
-        <video
-          className="absolute inset-0 h-full w-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-label="Delilah's Cafe exterior surrounded by plants in warm evening light"
-          onError={() => setVideoError(true)}
-        >
-          <source
-            src="/assets/cafe-beings/home/delilah.mp4"
-            type="video/mp4"
-            media="(min-width: 768px)"
-          />
-          Your browser does not support background video.
-        </video>
-      ) : null}
+      <YouTubeBackground
+        className="absolute inset-0"
+        load="after-paint"
+        title="Delilah's Cafe exterior surrounded by plants in warm evening light"
+        videoId="voC6R_BV9SU"
+      />
 
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(10,36,24,0.8)_0%,rgba(10,36,24,0.6)_43%,rgba(10,36,24,0.24)_72%,rgba(10,36,24,0.1)_100%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,17,12,0.18)_0%,transparent_45%,rgba(8,14,10,0.5)_100%)]" />

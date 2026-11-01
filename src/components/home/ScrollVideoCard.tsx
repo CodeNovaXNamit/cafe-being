@@ -7,15 +7,12 @@ import {
   useTransform,
 } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { DeferredVideo } from "@/components/ui/DeferredVideo";
-
-const videoPath = "/assets/cafe-beings/home/delilah-home-2.mp4";
+import { YouTubeBackground } from "@/components/ui/YouTubeBackground";
 
 export function ScrollVideoCard() {
   const cardRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
   const [isMobile, setIsMobile] = useState(false);
-  const [videoError, setVideoError] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 767px)");
@@ -79,24 +76,12 @@ export function ScrollVideoCard() {
         className="relative aspect-[9/16] max-h-[520px] overflow-hidden rounded-[1.75rem] border border-white/30 bg-[#173e2b] p-1.5 [transform-style:preserve-3d]"
       >
         <div className="relative h-full overflow-hidden rounded-[1.45rem] border border-white/12 bg-[linear-gradient(145deg,#244f38,#9b7248)]">
-          {!videoError ? (
-            <DeferredVideo
-              className="h-full w-full object-cover"
-              ariaLabel="A vertical glimpse of the atmosphere at Delilah's Cafe"
-              sources={[{ src: videoPath, type: "video/mp4" }]}
-              onError={() => setVideoError(true)}
-            />
-          ) : (
-            <div className="grid h-full place-items-center p-6 text-center">
-              <p className="font-serif text-2xl leading-tight text-[color:var(--warm-cream)]">
-                Warm lights.
-                <br />
-                Leafy corners.
-                <br />
-                Delilah&apos;s.
-              </p>
-            </div>
-          )}
+          <YouTubeBackground
+            className="absolute inset-0"
+            orientation="portrait"
+            title="A vertical glimpse of the atmosphere at Delilah's Cafe"
+            videoId="ZqB6V7B4ids"
+          />
 
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,238,196,0.08),transparent_38%,rgba(8,24,15,0.22))]" />
           <div className="pointer-events-none absolute inset-x-3 bottom-3 h-px bg-white/25" />
